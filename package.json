@@ -6,7 +6,7 @@
   "main": "server.js",
   "scripts": {
     "start": "node server.js",
-    "build": "eslint . && echo \"Build OK\"",
+    "build": "npm run lint && echo \"Build OK\"",
     "test": "node --experimental-vm-modules node_modules/jest/bin/jest.js --runInBand",
     "lint": "eslint ."
   },
