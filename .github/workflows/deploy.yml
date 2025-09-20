@@ -25,7 +25,7 @@ jobs:
 
       - name: Testes
         run: npm test -- --coverage
-
+        
       - name: Criar nova tag caso não exista
         env:
           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
