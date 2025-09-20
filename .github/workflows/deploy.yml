@@ -29,10 +29,12 @@ jobs:
       - name: Criar nova tag caso não exista
         env:
           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+          REPO: ${{ github.repository }}
         run: |
           if [ -z "$(git tag)" ]; then
             git config --global user.name 'github-actions'
             git config --global user.email 'github-actions@github.com'
+            git remote set-url origin https://x-access-token:${GITHUB_TOKEN}@github.com/${REPO}
             git tag -a v0.0.0 -m "Initial release"
             git push origin v0.0.0
           else
